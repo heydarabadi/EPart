@@ -72,7 +72,7 @@ EPart.sln
 │           └── API             # Controllers, Middlewares, Dependency Injection Setup
 ├── compose.yaml                # Infrastructure orchestration (SQL Server, RabbitMQ)
 └── README.md
-‍‍‍```
+```
 
 ## 🔄 Technical Implementation Details
 
