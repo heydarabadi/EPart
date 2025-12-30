@@ -1,0 +1,7 @@
+﻿services:
+  warehouse.api:
+    image: warehouse.api
+    build:
+      context: .
+      dockerfile: Src/Warehouse/Warehouse.Api/Dockerfile
+
