@@ -15,4 +15,7 @@ public abstract class AuditableAggregateRoot<TId> : AggregateRoot<TId>, IAuditab
     public void Delete() { IsDeleted = true; DeletedAtUtc = DateTime.UtcNow; }
     public void UndoDelete() { IsDeleted = false; DeletedAtUtc = null; }
     public void SetModified() => ModifiedAtUtc = DateTime.UtcNow;
+    
+    
+    
 }
