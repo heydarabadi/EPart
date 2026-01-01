@@ -4,24 +4,12 @@ using Microsoft.Extensions.Logging;
 using Shared.Domain;
 
 namespace Shared.Ui;
-
-public class GlobalExceptionHandler : IExceptionHandler
+public class GlobalExceptionHandler(ILogger<GlobalExceptionHandler> logger) : IExceptionHandler
 {
-    private readonly ILogger<GlobalExceptionHandler> _logger;
-
-    public GlobalExceptionHandler(ILogger<GlobalExceptionHandler> logger)
+    public async ValueTask<bool> TryHandleAsync(HttpContext httpContext, Exception exception, CancellationToken cancellationToken)
     {
-        _logger = logger;
-    }
+        logger.LogError(exception, "Error: {Message}", exception.Message);
 
-    public async ValueTask<bool> TryHandleAsync(
-        HttpContext httpContext,
-        Exception exception,
-        CancellationToken cancellationToken)
-    {
-        _logger.LogError(exception, "خطای مدیریت نشده: {Message}", exception.Message);
-
-        // تعیین وضعیت پاسخ بر اساس نوع اکسپشن
         var (statusCode, errorCode) = exception switch
         {
             DomainException dex => (StatusCodes.Status400BadRequest, dex.Code),
@@ -30,20 +18,13 @@ public class GlobalExceptionHandler : IExceptionHandler
         };
 
         httpContext.Response.StatusCode = statusCode;
-        httpContext.Response.ContentType = "application/json";
 
-        // ساخت بدنه پاسخ (مشابه پترن Result)
-        var response = new
-        {
-            IsSuccess = false,
-            Message = statusCode == StatusCodes.Status500InternalServerError 
-                ? "خطایی در سمت سرور رخ داده است." 
-                : exception.Message,
-            Code = errorCode
-        };
+        var response = ApiResponse<object>.Failure(
+            statusCode == 500 ? "خطای داخلی سرور" : exception.Message, 
+            errorCode
+        );
 
         await httpContext.Response.WriteAsJsonAsync(response, cancellationToken);
-
-        return true; // تایید هندل شدن خطا
+        return true;
     }
 }

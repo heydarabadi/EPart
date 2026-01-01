@@ -43,6 +43,8 @@ public static class DependencyInjection
     
     public static WebApplication UseUiSharedBuildServices(this WebApplication app,string projectName)
     {
+        app.UseMiddleware<ResponseWrapperMiddleware>();
+        
         // فعال‌سازی سیستم مدیریت خطای سراسری
         app.UseExceptionHandler();
 
