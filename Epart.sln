@@ -5,9 +5,9 @@ VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Src", "Src", "{E900428E-9CDE-4666-9D3D-32B2C7F9DA8D}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Warehouse", "Warehouse", "{BD8D53E0-1F97-475E-A639-B912A3D0312D}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WarehouseService", "WarehouseService", "{BD8D53E0-1F97-475E-A639-B912A3D0312D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Warehouse.Api", "Src\Warehouse\Warehouse.Api\Warehouse.Api.csproj", "{8339AA1D-01C2-4C95-9680-6A79B4B6ECCC}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WarehouseService.Api", "Src\Warehouse\WarehouseService.Api\WarehouseService.Api.csproj", "{8339AA1D-01C2-4C95-9680-6A79B4B6ECCC}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{65DFB623-42F0-4428-B8D3-A4DD2911D4D0}"
 	ProjectSection(SolutionItems) = preProject
@@ -22,9 +22,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Application", "Application"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Ui", "Ui", "{6B97EA31-A07C-445F-A09C-10EA829A6479}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Catalog", "Catalog", "{80809D82-43AD-47F8-A910-A8FBD81A9332}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CatalogService", "CatalogService", "{80809D82-43AD-47F8-A910-A8FBD81A9332}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Catalog.Api", "Src\Catalog\Catalog.Api\Catalog.Api.csproj", "{65131D11-D44A-4CDC-BDC3-057555C8B46B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CatalogService.Api", "Src\Catalog\CatalogService.Api\CatalogService.Api.csproj", "{65131D11-D44A-4CDC-BDC3-057555C8B46B}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{379AE9DB-37C4-401C-97A9-7B33BA81ED0B}"
 EndProject

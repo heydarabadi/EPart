@@ -1,8 +1,7 @@
-﻿using DispatchR;
-using DispatchR.Abstractions.Send;
+﻿using DispatchR.Abstractions.Send;
 using IMediator = Shared.Application.CqrsConfig.Contracts.IMediator;
 
-namespace Shared.Application.CqrsConfig;
+namespace Shared.Application.CqrsConfig.Concretes;
 
 internal class Mediator(DispatchR.IMediator dispatcher) : IMediator
 {
