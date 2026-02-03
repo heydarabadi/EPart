@@ -9,5 +9,5 @@ public interface IRepository<TId, TEntity> where TEntity : Entity<TId>
     void Add(TEntity entity);
     void Update(TEntity entity);
     void Delete(TEntity entity);
-    IEnumerable<Entity> GetAllAsync(CancellationToken cancellationToken = default);
+    Task<List<TEntity>> GetAllAsync(CancellationToken cancellationToken = default);
 }
