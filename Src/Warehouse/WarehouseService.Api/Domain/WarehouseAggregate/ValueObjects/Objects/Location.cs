@@ -5,10 +5,12 @@ namespace WarehouseService.Api.Domain.WarehouseAggregate.ValueObjects.Objects;
 
 public class Location : ValueObject
 {
-    public string Address { get; }
-    public double Latitude { get; }
-    public double Longitude { get; }
+    public string Address { get; init; }
+    public double Latitude { get; init; }
+    public double Longitude { get; init; }
 
+    private Location(){}
+    
     // ۱. Constructor با قابلیت اعتبارسنجی دقیق
     private Location(string address, double lat, double lon)
     {

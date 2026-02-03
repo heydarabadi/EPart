@@ -18,6 +18,8 @@ public sealed class WarehouseConfiguration:IEntityTypeConfiguration<Warehouse>
             .HasForeignKey(x => x.WarehouseId);
 
         builder.ComplexProperty(x => x.Location);
+        builder.ComplexProperty(x => x.Name);
+        
         builder.Property(x => x.IsActive).HasDefaultValue(true);
 
     }

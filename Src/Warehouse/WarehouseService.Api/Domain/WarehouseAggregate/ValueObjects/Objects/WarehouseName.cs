@@ -7,8 +7,14 @@ namespace WarehouseService.Api.Domain.WarehouseAggregate.ValueObjects.Objects;
 
 public class WarehouseName : ValueObject
 {
-    public string Value { get; }
+    public string Value { get; init; }
 
+
+    private WarehouseName()
+    {
+        
+    }
+    
     private WarehouseName(string value)
     {
         // تمام قوانین اعتبارسنجی نام اینجا متمرکز می‌شود
