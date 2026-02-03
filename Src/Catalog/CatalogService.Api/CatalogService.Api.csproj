@@ -26,4 +26,11 @@
       <ProjectReference Include="..\..\Shared\Ui\Shared.Ui\Shared.Ui.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Folder Include="Domain\CatalogAggregate\Entities\Exceptions\" />
+      <Folder Include="Domain\CatalogAggregate\Events\" />
+      <Folder Include="Domain\CatalogAggregate\Exceptions\" />
+      <Folder Include="Domain\CatalogAggregate\ValueObjects\Exceptions\" />
+    </ItemGroup>
+
 </Project>
