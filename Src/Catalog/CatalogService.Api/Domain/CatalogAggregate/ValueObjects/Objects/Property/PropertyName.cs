@@ -1,6 +1,7 @@
-﻿using Shared.Domain;
+﻿using CatalogService.Api.Domain.CatalogAggregate.ValueObjects.Exceptions.Property;
+using Shared.Domain;
 
-namespace CatalogService.Api.Domain.CatalogAggregate.ValueObjects.Objects;
+namespace CatalogService.Api.Domain.CatalogAggregate.ValueObjects.Objects.Property;
 
 public class PropertyName : ValueObject
 {
@@ -13,11 +14,11 @@ public class PropertyName : ValueObject
     {
         if (string.IsNullOrEmpty(value))
         {
-            throw new ArgumentNullException(nameof(value));
+            throw new PropertyNameRequiredException();
         }
         if (value.Length < 3 || value.Length > 100)
         {
-            throw new ArgumentOutOfRangeException(nameof(value));
+            throw new PropertyNameLenghtException();
         }
         Value = value;
     }

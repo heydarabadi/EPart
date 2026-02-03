@@ -1,6 +1,8 @@
-﻿using Shared.Domain;
+﻿using CatalogService.Api.Domain.CatalogAggregate.ValueObjects.Exceptions.Catalog;
+using CatalogService.Api.Domain.CatalogAggregate.ValueObjects.Exceptions.Category;
+using Shared.Domain;
 
-namespace CatalogService.Api.Domain.CatalogAggregate.ValueObjects.Objects;
+namespace CatalogService.Api.Domain.CatalogAggregate.ValueObjects.Objects.Category;
 
 public class CatalogName : ValueObject
 {
@@ -15,12 +17,12 @@ public class CatalogName : ValueObject
     {
         if (string.IsNullOrEmpty(value))
         {
-            throw new ArgumentNullException(nameof(value));
+            throw new CatalogNameRequiredException();
         }
 
         if (value.Length < 3 || value.Length > 100)
         {
-            throw new ArgumentOutOfRangeException(nameof(value));
+            throw new CatalogNameLengthException();
         }
         Value = value;
     }

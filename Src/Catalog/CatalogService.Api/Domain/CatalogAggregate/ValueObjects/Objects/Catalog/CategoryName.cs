@@ -1,6 +1,7 @@
-﻿using Shared.Domain;
+﻿using CatalogService.Api.Domain.CatalogAggregate.ValueObjects.Exceptions.Category;
+using Shared.Domain;
 
-namespace CatalogService.Api.Domain.CatalogAggregate.ValueObjects.Objects;
+namespace CatalogService.Api.Domain.CatalogAggregate.ValueObjects.Objects.Catalog;
 
 public class CategoryName: ValueObject
 {
@@ -14,12 +15,12 @@ public class CategoryName: ValueObject
     {
         if (string.IsNullOrWhiteSpace(value))
         {
-            throw new ArgumentException("Value cannot be null or whitespace.", nameof(value));
+            throw new CategoryNameRequiredException();
         }
 
         if (value.Length > 100 || value.Length < 3)
         {
-            throw new ArgumentException("Value must be between 3 and 100 characters long.", nameof(value));
+            throw new CategoryNameLenghtException();
         }
         Value = value;
     }
