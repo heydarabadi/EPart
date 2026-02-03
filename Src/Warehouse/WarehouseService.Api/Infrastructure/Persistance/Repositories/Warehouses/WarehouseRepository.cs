@@ -32,25 +32,54 @@ public class WarehouseRepository(WarehouseDbContext _warehouseDbContext)
 
         if (exist)
             throw new WarehouseAlreadyExistInfrastructureException();
+        
+        await _warehouseDbContext.AddAsync(entity, cancellationToken);
     }
 
     public void Add(Warehouse entity)
     {
-        throw new NotImplementedException();
+        var exist =  _warehouseDbContext
+            .Warehouses
+            .Any(x=>x.Id == entity.Id);
+
+        if (exist)
+            throw new WarehouseAlreadyExistInfrastructureException();
+        
+        _warehouseDbContext.Warehouses.Add(entity);    
     }
 
     public void Update(Warehouse entity)
     {
-        throw new NotImplementedException();
+        var warehouse = _warehouseDbContext
+            .Warehouses
+            .Find(entity.Id);
+
+        if (warehouse is null)
+            throw new WarehouseNotFoundInfrastructureException();
+        
+        _warehouseDbContext.Warehouses.Update(entity);
     }
 
     public void Delete(Warehouse entity)
     {
-        throw new NotImplementedException();
+        var warehouse =  _warehouseDbContext
+            .Warehouses
+            .Find(entity.Id);
+
+        if (warehouse is null)
+            throw new WarehouseAlreadyExistInfrastructureException();
+        
+        _warehouseDbContext.Warehouses.Remove(entity);
+        
     }
 
-    public IEnumerable<Entity> GetAllAsync(CancellationToken cancellationToken = default)
+    public async Task<List<Warehouse>> GetAllAsync(CancellationToken cancellationToken = default)
     {
-        throw new NotImplementedException();
+        var warehouses = await _warehouseDbContext
+            .Warehouses
+            .AsNoTracking()
+            .ToListAsync(cancellationToken);
+
+        return warehouses;
     }
 }
