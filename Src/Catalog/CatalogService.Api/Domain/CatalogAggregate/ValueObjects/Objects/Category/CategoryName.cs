@@ -1,7 +1,7 @@
 ﻿using CatalogService.Api.Domain.CatalogAggregate.ValueObjects.Exceptions.Category;
 using Shared.Domain;
 
-namespace CatalogService.Api.Domain.CatalogAggregate.ValueObjects.Objects.Catalog;
+namespace CatalogService.Api.Domain.CatalogAggregate.ValueObjects.Objects.Category;
 
 public class CategoryName: ValueObject
 {
