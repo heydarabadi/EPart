@@ -20,29 +20,16 @@ public sealed class WarehouseDbContext:DbContext
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        modelBuilder.Entity<StorageLocation>(entity =>
-        {
-            entity.ComplexProperty(p => p.Address, prop =>
-            {
-                prop.Property(m => m.Shelf)
-                    .HasColumnName("Shelf")
-                    .IsRequired();
-                prop.Property(m=>m.Bin)
-                    .HasColumnName("Bin")
-                    .IsRequired();
-                prop.Property(m => m.Zone)
-                    .HasColumnName("Zone")
-                    .IsRequired();
-            });
-        });
+       modelBuilder.
+           ApplyConfigurationsFromAssembly(typeof(AssemblyMarker).Assembly);
     }
     
     
 
     #region Db Sets
-    // public DbSet<Warehouse> Warehouses { get; set; }
+    public DbSet<Warehouse> Warehouses { get; set; }
     // public DbSet<InventoryItem> InventoryItems { get; set; }
-    public DbSet<StorageLocation> StorageLocations { get; set; }
+    // public DbSet<StorageLocation> StorageLocations { get; set; }
     #endregion
     
     

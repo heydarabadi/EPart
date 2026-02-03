@@ -8,9 +8,7 @@ var app = builder.Build();
 
 app.UseHttpsRedirection();
 
-app.UseAuthorization();
 
-app.MapControllers();
 string projectName = "CatalogService.Api";
 app.UseUiSharedBuildServices(projectName);
 
